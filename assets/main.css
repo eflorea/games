@@ -1,0 +1,416 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, main, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* custom css starts here */
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #204051;
+    color: #FFF;
+    font-family: console, monospace;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+body.loading {
+    overflow: hidden;
+    position: relative;
+}
+
+header {
+    background: #1b262c;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 80rem;
+    padding: 1.5rem;
+}
+
+main {
+    flex: 1;
+}
+
+main section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+main section article {
+    width: 25%;
+    margin-bottom: 1rem;
+    color: #1b262c;
+    display: flex;
+    flex-direction: column;
+}
+
+main section article > div {
+    background: #FFF;
+    margin-right: 1rem;
+}
+
+main .wrapper {
+    padding-bottom: 0;
+}
+
+@media screen and ( max-width: 80rem ) {
+    main section article {
+        width: 33.33333%;
+    }
+}
+
+@media screen and ( max-width: 60rem ) {
+    main section article {
+        width: 50%;
+    }
+}
+
+@media screen and ( max-width: 40rem ) {
+    main section article {
+        width: 100%;
+    }
+}
+
+a {
+    color: #FFF;
+}
+
+.svg-icon {
+     width: 2rem;
+     height: 2rem;
+    vertical-align: middle;
+ }
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: #FFF;
+}
+
+.svg-icon circle {
+    stroke: #FFF;
+    stroke-width: 1;
+}
+
+main section article img {
+    width: 100%;
+}
+
+main section article h2,
+main section article p {
+    padding: 0.5rem;
+}
+
+button {
+    background: transparent;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+header form {
+    display: flex;
+}
+
+header form input {
+    flex-grow: 2;
+    border: 0;
+    background: transparent;
+    border-bottom: 0.5px solid #FFF;
+    color: #FFF;
+    font-family: console, monospace;
+    font-size: 1.5rem;
+}
+header form input:focus {
+    outline-color: #FFF;
+    outline-style: dashed;
+    outline-width: 0.5px;
+    border-bottom: 1px solid #1b262c;
+}
+
+header form button {
+    margin-left: 0.5rem;
+}
+
+article .svg-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: -0.3rem;
+}
+
+article .svg-icon path,
+article .svg-icon polygon,
+article .svg-icon rect {
+    fill: #1b262c;
+}
+
+article .svg-icon circle {
+    stroke: #1b262c;
+}
+
+article p {
+    display: flex;
+    align-items: flex-end;
+    margin-top: auto;
+}
+
+article p span {
+    flex: 1;
+    display: inline-block;
+}
+
+article p span:nth-child(2) {
+    text-align: right;
+}
+
+body.loading header {
+    display: none;
+}
+
+body.loading main {
+    display: none;
+}
+
+body.loading footer {
+    display: none;
+}
+
+body #load {
+    display: none;
+}
+
+body.loading #load {
+    display: block;
+}
+
+#load {
+    position:absolute;
+    width:15rem;
+    height:2rem;
+    left:50%;
+    top:40%;
+    margin-left:-10rem;
+    overflow:visible;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor:default;
+}
+
+#load div {
+    position:absolute;
+    width:1rem;
+    height:1.5rem;
+    opacity:0;
+    font-family:Helvetica, Arial, sans-serif;
+    animation:move 2s linear infinite;
+    -o-animation:move 2s linear infinite;
+    -moz-animation:move 2s linear infinite;
+    -webkit-animation:move 2s linear infinite;
+    transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    color:#35C4F0;
+}
+
+#load div:nth-child(2) {
+    animation-delay:0.2s;
+    -o-animation-delay:0.2s;
+    -moz-animation-delay:0.2s;
+    -webkit-animation-delay:0.2s;
+}
+#load div:nth-child(3) {
+    animation-delay:0.4s;
+    -o-animation-delay:0.4s;
+    -webkit-animation-delay:0.4s;
+    -webkit-animation-delay:0.4s;
+}
+#load div:nth-child(4) {
+    animation-delay:0.6s;
+    -o-animation-delay:0.6s;
+    -moz-animation-delay:0.6s;
+    -webkit-animation-delay:0.6s;
+}
+#load div:nth-child(5) {
+    animation-delay:0.8s;
+    -o-animation-delay:0.8s;
+    -moz-animation-delay:0.8s;
+    -webkit-animation-delay:0.8s;
+}
+#load div:nth-child(6) {
+    animation-delay:1s;
+    -o-animation-delay:1s;
+    -moz-animation-delay:1s;
+    -webkit-animation-delay:1s;
+}
+#load div:nth-child(7) {
+    animation-delay:1.2s;
+    -o-animation-delay:1.2s;
+    -moz-animation-delay:1.2s;
+    -webkit-animation-delay:1.2s;
+}
+
+@keyframes move {
+    0% {
+        left:0;
+        opacity:0;
+    }
+    35% {
+        left: 41%;
+        -moz-transform:rotate(0deg);
+        -webkit-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    65% {
+        left:59%;
+        -moz-transform:rotate(0deg);
+        -webkit-transform:rotate(0deg);
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    100% {
+        left:100%;
+        -moz-transform:rotate(-180deg);
+        -webkit-transform:rotate(-180deg);
+        -o-transform:rotate(-180deg);
+        transform:rotate(-180deg);
+        opacity:0;
+    }
+}
+
+@-moz-keyframes move {
+    0% {
+        left:0;
+        opacity:0;
+    }
+    35% {
+        left:41%;
+        -moz-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    65% {
+        left:59%;
+        -moz-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    100% {
+        left:100%;
+        -moz-transform:rotate(-180deg);
+        transform:rotate(-180deg);
+        opacity:0;
+    }
+}
+
+@-webkit-keyframes move {
+    0% {
+        left:0;
+        opacity:0;
+    }
+    35% {
+        left:41%;
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    65% {
+        left:59%;
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    100% {
+        left:100%;
+        -webkit-transform:rotate(-180deg);
+        transform:rotate(-180deg);
+        opacity:0;
+    }
+}
+
+@-o-keyframes move {
+    0% {
+        left:0;
+        opacity:0;
+    }
+    35% {
+        left:41%;
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    65% {
+        left:59%;
+        -o-transform:rotate(0deg);
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    100% {
+        left:100%;
+        -o-transform:rotate(-180deg);
+        transform:rotate(-180deg);
+        opacity:0;
+    }
+}

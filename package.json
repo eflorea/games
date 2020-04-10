@@ -1,0 +1,24 @@
+{
+  "name": "florea-games",
+  "version": "1.0.0",
+  "description": "Personal collection of tabletop/board games",
+  "main": "index.js",
+  "dependencies": {
+    "bgg": "^1.0.1",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eflorea/games.git"
+  },
+  "author": "Eduard Florea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eflorea/games/issues"
+  },
+  "homepage": "https://github.com/eflorea/games#readme"
+}

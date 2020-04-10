@@ -44,7 +44,7 @@ bgg( 'collection', { username: 'djeddy' } )
 
 
                         game.thumbnail = el.thumbnail.toString();
-                        game.players   = el.minplayers.value.toString() + ' - ' + el.maxplayers.value.toString();
+                        game.players   = ( el.minplayers.value.toString() != el.maxplayers.value.toString() ) ? el.minplayers.value.toString() + ' - ' + el.maxplayers.value.toString() : el.minplayers.value.toString();
                         game.playing   = el.playingtime.value.toString();
                         game.published = el.yearpublished.value.toString();
                         game.minage    = el.minage.value.toString();

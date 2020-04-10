@@ -6,8 +6,10 @@ const options = {
     timeout: 10000, // timeout of 10s (5s is the default).
 }
 
-const bgg = require( 'bgg' )( options );
-const fs  = require( 'fs' );
+const bgg      = require( 'bgg' )( options );
+const fs       = require( 'fs' );
+const download = require( 'image-downloader' );
+const sharp    = require( 'sharp' );
 
 bgg( 'collection', { username: 'djeddy' } )
     .then( function( results ) {
@@ -26,6 +28,20 @@ bgg( 'collection', { username: 'djeddy' } )
                         let game = {};
                         game.id        = el.id.toString();
                         game.image     = el.image.toString();
+
+                        download.image( { url: game.image, dest: './images/' + game.id + '.jpg' } )
+                            .then(({ filename, image }) => {
+                                sharp( filename )
+                                .resize( { height: 800 })
+                                    .toFile( './images/' + game.id + '-small.jpg' )
+                                    .then( data => {
+                                        console.log( data ); // Saved to /path/to/dest/photo.jpg
+                                    } );
+                                console.log( 'Saved to', filename)   // Saved to /path/to/dest/photo.jpg
+                            })
+                            .catch( ( err ) => console.error( err ) );
+
+
                         game.thumbnail = el.thumbnail.toString();
                         game.players   = el.minplayers.value.toString() + ' - ' + el.maxplayers.value.toString();
                         game.playing   = el.playingtime.value.toString();

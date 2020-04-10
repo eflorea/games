@@ -257,18 +257,10 @@ article .wanted {
     right: 0.5rem;
     top: 0;
     background: #204051;
-    padding: 0.5rem;
+    padding: 0.25rem;
     border: 2px solid #FFF;
-}
-
-article .wanted .svg-icon path,
-article .wanted .svg-icon polygon,
-article .wanted .svg-icon rect {
-    fill: #FFF;
-}
-
-article .wanted .svg-icon circle {
-    stroke: #FFF;
+    color: #FFF;
+    font-size: 0.75rem;
 }
 
 body.loading header {

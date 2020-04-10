@@ -36,6 +36,7 @@ bgg( 'collection', { username: 'djeddy' } )
                                     .toFile( './images/' + game.id + '-small.jpg' )
                                     .then( data => {
                                         console.log( data ); // Saved to /path/to/dest/photo.jpg
+                                        fs.unlinkSync( './images/' + game.id + '.jpg' );
                                     } );
                                 console.log( 'Saved to', filename)   // Saved to /path/to/dest/photo.jpg
                             })

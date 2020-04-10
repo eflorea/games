@@ -132,14 +132,31 @@ main section article > div {
     background: #FFF;
     margin: 0 0.5rem;
     height: 100%;
+    overflow: hidden;
+    padding: 1px;
 }
 
 main section article > div div {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 0;
-    height: 10rem;
-    border: 0.75rem solid #FFF;
+    height: 15rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+main section article > div div img {
+    padding: 0.75rem solid #FFF;
+}
+
+.lazyload,
+.lazyloading {
+    opacity: 0;
+}
+.lazyloaded {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+
+img.lazyload:not([src]) {
+    visibility: hidden;
 }
 
 main .wrapper {

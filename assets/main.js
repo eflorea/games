@@ -55,7 +55,9 @@
         }
         return `<article>
                     <div>
-                        <div style="background-image: url( './images/${game.id}-small.jpg' );"></div>
+                        <div>
+                            <img data-src="./images/${game.id}-small.jpg" class="lazyload" />
+                        </div>
                         <h2>${game.name}</h2>
                     </div>
                     <p>

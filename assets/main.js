@@ -35,15 +35,23 @@
     const searchGame = function( keyword ) {
         let found_games = [];
         if ( '' === keyword ) {
-            return GAMES;
-        }
-
-        const reg = new RegExp( keyword, 'gi' );
-        GAMES.forEach( function ( el ) {
-            if ( reg.test( el.name ) || reg.test( el.published ) ) {
+            GAMES.forEach( function ( el ) {
+                if ( '1' !== el.status.own.toString() ) {
+                    return;
+                }
                 found_games.push( el );
-            }
-        } );
+            } );
+        } else {
+            const reg = new RegExp( keyword, 'gi' );
+            GAMES.forEach( function ( el ) {
+                if ( '1' !== el.status.own.toString() ) {
+                    return;
+                }
+                if ( reg.test( el.name ) || reg.test( el.published ) ) {
+                    found_games.push( el );
+                }
+            } );
+        }
 
         return found_games;
     };

@@ -20,7 +20,7 @@ npm install
 ```
 node source/games.js
 ```
-If the collection is newly created and/or updated you might need to run this command a few times if you encouter a JS error (BGG API responses are not instantly if that call has never been requested before).
+If the collection is newly created and/or updated you might need to run this command a few times if you encouter a JS error (BGG API responses are not instantly if a specific endpoint has never been requested before).
 * Open index.html locally or/commit the change to your own repo
 
 ## How to get started with GitHub Pages?

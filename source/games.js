@@ -11,7 +11,7 @@ const fs       = require( 'fs' );
 const download = require( 'image-downloader' );
 const sharp    = require( 'sharp' );
 
-bgg( 'collection', { username: 'djeddy' } )
+bgg( 'collection', { username: 'eflorea' } )
     .then( function( results ) {
         // build an array with ids so we can make another api call to grab the details of each game.
         let ids        = [];
@@ -59,10 +59,10 @@ bgg( 'collection', { username: 'djeddy' } )
                     } );
                     if ( games ) {
                         // sort games by published date.
-                        games.sort( ( a, b ) => ( a.published < b.published ) ? 1 : -1 );
+                        games.sort( ( a, b ) => ( parseInt( a.published ) < parseInt( b.published ) ) ? 1 : -1 );
 
                         // write the games to a file.
-                        fs.writeFile( './assets/games.js', 'const GAMES = ' + JSON.stringify( games ), function (err) {
+                        fs.writeFile( './assets/games.js', 'const GAMES = ' + JSON.stringify( games ) + ';' + "\nconst LAST_UPDATE = '" + new Date().toLocaleString( 'en-US', {year: 'numeric', month: 'long', day: 'numeric' } ) + "';", function (err) {
                             if ( err ) {
                                 return console.log( err );
                             }

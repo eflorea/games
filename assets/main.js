@@ -1,9 +1,10 @@
 ( function ( window, document ) {
 
-    let content;
+    let content, totalGames, lastUpdated;
 
     const callback = function(){
         content = document.getElementById( 'content' );
+        totalGames = document.getElementById( 'total-games' );
 
         const search = document.querySelector( '#search input[type="text"]' );
         search.addEventListener( 'keyup', function() {
@@ -17,6 +18,11 @@
             return false;
         } );
 
+        lastUpdated = document.getElementById( 'last-updated' );
+        if ( lastUpdated ) {
+            lastUpdated.innerHTML = LAST_UPDATE;
+        }
+
         fillContent( '' );
 
         // remove the loading status.
@@ -26,7 +32,11 @@
     const fillContent = function( keyword ) {
         if ( content ) {
             content.innerHTML = '';
-            searchGame( keyword ).forEach( function( el ) {
+            const gamesFound = searchGame( keyword );
+            if ( totalGames ) {
+                totalGames.innerHTML = parseInt( gamesFound.length );
+            }
+            gamesFound.forEach( function( el ) {
                 content.insertAdjacentHTML( 'beforeend', generateGameTemplate( el ) );
             } )
         }
